@@ -81,3 +81,7 @@ show collections
 db.cliente.find()
  
 db.cliente.insertOne({"nome":"jefté"})
+
+db.cliente.updateOne({"nome": "MAria"}, {$set: {"nome": "Maria"}})
+
+db.cliente.updateOne({"nome": "Maria"}, {$set: {"endereco": {"logradouro": "sossego"}}})
