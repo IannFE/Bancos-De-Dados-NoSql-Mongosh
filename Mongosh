@@ -5,83 +5,54 @@ mongosh-2.9.2-x64.msi
 JSON Formatter & Validator
  
  
-{
-   "nome": "jefté",
-   "idade": 35,
-   "altura": 1.67,
-   "ehProfessor": true,
-   "pets": ["dora", "sabrina"],
-   "endereco": { "rua": "xxx", "cidade": "feira", "numero": 1000}
-}
- 
- 
- 
- 
 show databases
- 
+
 - Exibir os bancos de dados
+show databases
 
-show database
- 
 - Exibir os bancos de dados
-
-show database
-
+show databases
 - Criar banco de dados
-
-use loja_informatica
- 
-- Exibir os bancos de dados
-
-show database
-
-- Criar banco de dados
-
 use loja_informatica
 
+- Exibir os bancos de dados
+show databases
+- Criar banco de dados
+use loja_informatica
 - Criar nova collection
-
-db.createCollection("cliente")
- 
-- Exibir os bancos de dados
-
-show database
-
-- Criar banco de dados
-
-use loja_informatica
-
-- Criar nova collection
-
 db.createCollection("cliente")
 
+- Exibir os bancos de dados
+show databases
+- Criar banco de dados
+use loja_informatica
+- Criar nova collection
+db.createCollection("cliente")
 - Mostar todas as collections
-
 show collections
 
- 
 - Exibir os bancos de dados
-
-show database
-
+show databases
 - Criar banco de dados
-
 use loja_informatica
-
 - Criar nova collection
-
 db.createCollection("cliente")
-
 - Mostar todas as collections
-
 show collections
-
 - Mostrar todos os documentos/objetos
-
 db.cliente.find()
- 
-db.cliente.insertOne({"nome":"jefté"})
+
+- Inserir apenas 1 documento (objeto)
+db.cliente.insertOne({ "nome": "jefté", "idade": 35, "pets": ["dora", "sabrina"], "endereco": { "logradouro": "Sossego" } })
+
+- Inserir muitos documentos de uma vez
+db.cliente.insertMany([{ "nome": "Brenno" }, { "nome": "João" }, { "nome": "MAria" }, { "nome": "José" }, { "nome": "Noé" }])
+
+- Buscar pelo campo
+db.cliente.find({"nome": "José"})
+
+- Buscar pelo identificador único
+db.cliente.find({ _id: ObjectId('SEU_ID_AQUI') })
 
 db.cliente.updateOne({"nome": "MAria"}, {$set: {"nome": "Maria"}})
-
 db.cliente.updateOne({"nome": "Maria"}, {$set: {"endereco": {"logradouro": "sossego"}}})
